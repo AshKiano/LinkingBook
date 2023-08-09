@@ -1,0 +1,5 @@
+name: LinkingBook
+version: '${project.version}'
+main: com.ashkiano.linkingbook.LinkingBook
+api-version: '1.16'
+author: AshKiano
