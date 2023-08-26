@@ -17,12 +17,20 @@ import java.util.List;
 
 public class LinkingBookListener implements Listener {
 
+    private final String bookName;
+    private final String sameDimensionMessage;
+
+    public LinkingBookListener(String bookName, String sameDimensionMessage) {
+        this.bookName = bookName;
+        this.sameDimensionMessage = sameDimensionMessage;
+    }
+
     @EventHandler
     public void onCraft(CraftItemEvent event) {
         ItemStack result = event.getCurrentItem();
         if (result != null && result.getType() == Material.WRITTEN_BOOK) {
             BookMeta meta = (BookMeta) result.getItemMeta();
-            if (meta.getDisplayName().equals("Linking Book")) {
+            if (meta.getDisplayName().equals(bookName)) { // Use the name from config
                 Location playerLocation = event.getWhoClicked().getLocation();
                 meta.setLore(
                         Arrays.asList(
@@ -56,7 +64,7 @@ public class LinkingBookListener implements Listener {
 
                 // If the player is in the same dimension as the book, they won't be teleported
                 if (dim.equals(event.getPlayer().getWorld().getName())) {
-                    event.getPlayer().sendMessage("You cannot use this book in the same dimension it was created.");
+                    event.getPlayer().sendMessage(sameDimensionMessage);
 
                     event.setCancelled(true);
                     return;

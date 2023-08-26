@@ -1,0 +1,5 @@
+# The name of the linking book
+linking-book-name: "Linking Book"
+
+# Message for using the book in the same dimension
+same-dimension-message: "You cannot use this book in the same dimension it was created."
