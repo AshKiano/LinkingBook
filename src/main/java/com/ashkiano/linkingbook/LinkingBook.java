@@ -8,6 +8,7 @@ import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
+//TODO pridat craftici permisi
 public class LinkingBook extends JavaPlugin {
 
     @Override
@@ -17,6 +18,8 @@ public class LinkingBook extends JavaPlugin {
         addLinkingBookRecipe();
 
         Metrics metrics = new Metrics(this, 19437);
+
+        this.getLogger().info("Thank you for using the LinkingBook plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
     }
 
     private void addLinkingBookRecipe() {

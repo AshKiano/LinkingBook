@@ -1,5 +1,5 @@
 name: LinkingBook
-version: '1.1'
+version: '1.2'
 main: com.ashkiano.linkingbook.LinkingBook
 api-version: '1.16'
 author: AshKiano
