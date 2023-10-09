@@ -33,7 +33,7 @@ public class LinkingBook extends JavaPlugin {
 
         Metrics metrics = new Metrics(this, 19437);
 
-        this.getLogger().info("Thank you for using the LinkingBook plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
+        this.getLogger().info("Thank you for using the LinkingBook plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
     }
 
     private void addLinkingBookRecipe() {
