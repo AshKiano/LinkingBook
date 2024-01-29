@@ -14,6 +14,7 @@ public class LinkingBook extends JavaPlugin {
 
     private String bookName;
     private String sameDimensionMessage;
+    private Integer customModelData;
 
     @Override
     public void onEnable() {
@@ -24,6 +25,7 @@ public class LinkingBook extends JavaPlugin {
 
         // Get the book name from config
         bookName = config.getString("linking-book-name", "Linking Book");
+        customModelData = config.getInt("linking-book-custom-model-data", 0);
         // Load additional settings from config
         sameDimensionMessage = getConfig().getString("same-dimension-message", "You cannot use this book in the same dimension it was created.");
 
@@ -39,7 +41,10 @@ public class LinkingBook extends JavaPlugin {
     private void addLinkingBookRecipe() {
         ItemStack linkingBook = new ItemStack(Material.WRITTEN_BOOK);
         BookMeta meta = (BookMeta) linkingBook.getItemMeta();
-        meta.setDisplayName(bookName); // Use the name from config
+        meta.setDisplayName(bookName);
+        if (customModelData != 0) {
+            meta.setCustomModelData(customModelData);
+        }
         linkingBook.setItemMeta(meta);
 
         ShapelessRecipe linkingBookRecipe = new ShapelessRecipe(new NamespacedKey(this, "linking_book"), linkingBook);
