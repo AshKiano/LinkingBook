@@ -10,6 +10,9 @@ import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 //TODO pridat craftici permisi
+//TODO permise, že nemusí být v jiné dimenzi
+//TODO permise na příkaz, který tu knihu givne místo craftění
+//TODO custom craftící recept
 public class LinkingBook extends JavaPlugin {
 
     private String bookName;
