@@ -31,6 +31,7 @@ public class LinkingBook extends JavaPlugin {
         customModelData = config.getInt("linking-book-custom-model-data", 0);
         // Load additional settings from config
         sameDimensionMessage = getConfig().getString("same-dimension-message", "You cannot use this book in the same dimension it was created.");
+        boolean showDonateMessage = getConfig().getBoolean("ShowDonateMessage", true);
 
         this.getServer().getPluginManager().registerEvents(new LinkingBookListener(bookName, sameDimensionMessage), this);
 
@@ -38,7 +39,9 @@ public class LinkingBook extends JavaPlugin {
 
         Metrics metrics = new Metrics(this, 19437);
 
-        this.getLogger().info("Thank you for using the LinkingBook plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
+        if (showDonateMessage) {
+            this.getLogger().info("Thank you for using the LinkingBook plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
+        }
     }
 
     private void addLinkingBookRecipe() {
